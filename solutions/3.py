@@ -1,10 +1,5 @@
 import itertools as i
 f=open('inputs/3.txt').readlines()
-w=set(w[:-1] for w in f)
+w=set(l[:-1] for l in f)
 d={a+b:(a,b) for a,b in i.permutations(w, 2)}
-r=set()
-for c in d:
- if c in w:
-  r.update((c,)+d[c])
-w.difference_update(r)
-print(w)
+print '\n'.join(set().union(*(set(d[c]+(c,)) for c in d if c in w)))
