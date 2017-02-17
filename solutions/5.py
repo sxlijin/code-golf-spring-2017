@@ -13,5 +13,4 @@ def x(t,k=0):
     else:
         return ('%s<composite value="%d">\n%s\n%s\n%s</composite>'%(sp, reduce(mul, t, 1), x(t[:1], k+2), x(t[1:], k+2), sp))
 
-print((f(500)))
-print(x(f(500)))
+for n in open('inputs/5.txt').readlines(): print x(f(int(n)))
